@@ -10,34 +10,45 @@
     tools:context="val.femxa.cam.edu.letradni.MainActivity"
     android:orientation="vertical">
 
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:onClick="calcularDNI"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="11dp"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentEnd="true" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Introduce los Numeros DNI:"
-        android:layout_marginTop="31dp"
-        android:textSize="24sp"
+        android:layout_marginTop="67dp"
+        android:textSize="26sp"
         android:id="@+id/textView"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="33dp" />
+
+    <Button
+        android:text="CALCULAR LETRA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:onClick="calcularDNI"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:visibility="visible"
+        android:typeface="normal"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp"
+        android:background="@android:color/holo_blue_dark"
+        android:textSize="24sp"
+        android:textColor="@color/colorAccent" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/numeros"
+        android:textStyle="normal|bold"
+        android:textColor="?attr/colorControlActivated"
         android:layout_below="@+id/button"
-        android:layout_alignEnd="@+id/button"
-        android:layout_marginTop="23dp"
-        android:textStyle="normal|bold" />
+        android:layout_marginTop="24dp"
+        android:hint="Escriba los numeros de su DNI"
+        android:layout_alignStart="@+id/textView"
+        android:inputType="number"/>
 
 </RelativeLayout>

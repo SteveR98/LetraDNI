@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,11 +15,17 @@ public class MainActivity extends AppCompatActivity {
         String dni =cajaDNI.getText().toString();
 
 
-        ObtenerLetraDNI obtenerLetraDNI=new ObtenerLetraDNI();
+        ObtenerLetraDNI obtenerLetraDNI=new ObtenerLetraDNI(this);
         obtenerLetraDNI.execute(dni);//El dni es el string de los parametros del ObtenerLetraDNI
         Log.d("MENSAJE","ObtenerLetraDNI llamado");//HILOOOOO
     }
 
+    public void mostrarToast (String letra)
+{
+
+    Toast toast = Toast.makeText(this,"Su letra es: "+letra, Toast.LENGTH_LONG);
+    toast.show();
+}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

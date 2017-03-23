@@ -11,15 +11,29 @@ import java.net.URL;
 
 /**
  * Created by Administrador on 22/03/2017.
+ *
  */
 
 
 
-public class ObtenerLetraDNI extends AsyncTask<String,Void,String>
-{
+public class ObtenerLetraDNI extends AsyncTask<String,Void,String> {
+
+    private MainActivity mainActivity;
+
+    public ObtenerLetraDNI (MainActivity mainActivity)
+    {
+        this.mainActivity = mainActivity;
+
+
+
+
+    }
+
 
     private final static String DIR_SERVLET="http://femxa-ebtm.rhcloud.com/CalcularLetraDni?dni=";
 
+    //http://localhost:8090/LetraDNI/CalcularLetraDNI?dni=
+    //http://femxa-ebtm.rhcloud.com/CalcularLetraDni?dni=
 
     @Override
     protected String doInBackground(String... params)
@@ -45,12 +59,13 @@ public class ObtenerLetraDNI extends AsyncTask<String,Void,String>
         }
         catch (Throwable throwable)
         {
+            Log.d("MENSAJE","ERROR",throwable);
+
             throwable.printStackTrace();
         }
         finally {
             http.disconnect();
         }
-
         return letraDNI;
 
     }
@@ -60,6 +75,8 @@ public class ObtenerLetraDNI extends AsyncTask<String,Void,String>
     {
         Log.d("MENSAJE","La invocacion al servlet acabó");
         Log.d("MENSAJE","Letra recibida= "+letra);
+
+        mainActivity.mostrarToast(letra);
 
     }
 
